@@ -1,11 +1,11 @@
 import axios from "axios";
 import {AuthResponse} from "../models/response/AuthResponse.ts";
 
-export const API_URL = 'http://localhost:3000/';
+export const API_URL = 'http://10.3.34.170:8081/api/v1/auth';
 
 const $api = axios.create({
     baseURL: API_URL,
-    withCredentials: true
+    withCredentials: true,
 });
 
 $api.interceptors.request.use((config) => {
@@ -23,7 +23,7 @@ $api.interceptors.response.use((config) => {
     if(error.response.status === 401 && error.config && !error.config._isRetry) {
         originalRequest._isRetry = true;
         try {
-            const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true});
+            const response = await axios.get<AuthResponse>(`${API_URL}/refresh-token`, {withCredentials: true});
             localStorage.setItem("accessToken", response.data.accessToken);
             return $api.request(originalRequest);
         } catch (error) {

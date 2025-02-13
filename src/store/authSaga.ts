@@ -31,6 +31,7 @@ function* authLogin(action: PayloadAction<{ email: string; password: string }>):
 }
 
 function* authRegistration(action: PayloadAction<{ name: string; email: string; password: string }>): Generator {
+    console.log('saga')
     try {
         yield call(AuthService.registration, action.payload);
         yield put(registrationSuccess({email: action.payload.email}));
