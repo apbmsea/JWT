@@ -1,6 +1,6 @@
-import $api from "../http";
+import $api from "../shared/api";
 import { AxiosResponse } from "axios";
-import { AuthResponse } from "../models/response/AuthResponse.ts";
+import { AuthResponse } from "../shared/types/AuthResponse.ts";
 
 export const AuthService = {
     login: async (user: { email: string, password: string }): Promise<AxiosResponse<AuthResponse>> => {

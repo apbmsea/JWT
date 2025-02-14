@@ -1,5 +1,5 @@
 import axios from "axios";
-import {AuthResponse} from "../models/response/AuthResponse.ts";
+import {AuthResponse} from "../types/AuthResponse.ts";
 
 export const API_URL = 'http://10.3.34.170:8081/api/v1/auth';
 

@@ -1,5 +1,5 @@
 import {call, put, takeLatest} from "redux-saga/effects";
-import {AuthService} from "../services/AuthService.ts";
+import {AuthService} from "../../services/AuthService.ts";
 import {
     confirmCodeRequest,
     confirmCodeSuccess,
@@ -12,8 +12,8 @@ import {
     checkAuthRequest
 } from "./authSlice.ts";
 import {PayloadAction} from "@reduxjs/toolkit";
-import {AuthResponse} from "../models/response/AuthResponse.ts";
-import {API_URL} from "../http";
+import {AuthResponse} from "../../shared/types/AuthResponse.ts";
+import {API_URL} from "../../shared/api";
 import axios from "axios";
 
 function* authLogin(action: PayloadAction<{ email: string; password: string }>): Generator {

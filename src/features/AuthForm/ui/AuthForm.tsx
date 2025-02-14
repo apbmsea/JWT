@@ -6,10 +6,11 @@ import {
     loginRequest,
     logoutRequest,
     registrationRequest
-} from "../store/authSlice.ts";
-import {RootState} from "../store/store.ts";
+} from "../../../app/store/authSlice.ts";
+import {RootState} from "../../../app/store/store.ts";
+import {Button} from "../../../shared/ui/Button";
 
-const LoginForm: React.FC = () => {
+const AuthForm: React.FC = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -66,7 +67,7 @@ const LoginForm: React.FC = () => {
                             type="password"
                             placeholder="Пароль"
                         />
-                        <button onClick={handleRegistration}>Регистрация</button>
+                        <Button variant="primary" onClick={handleRegistration}>Зарегистрироваться</Button>
                         <button onClick={handleLogin}>Войти</button>
                     </>
                 ) : (
@@ -86,4 +87,4 @@ const LoginForm: React.FC = () => {
     );
 };
 
-export default LoginForm;
+export default AuthForm;
